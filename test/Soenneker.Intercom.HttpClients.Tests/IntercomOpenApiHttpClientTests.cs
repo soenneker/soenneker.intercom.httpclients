@@ -1,20 +1,19 @@
 using Soenneker.Intercom.HttpClients.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Intercom.HttpClients.Tests;
 
-[Collection("Collection")]
-public sealed class IntercomOpenApiHttpClientTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class IntercomOpenApiHttpClientTests : HostedUnitTest
 {
     private readonly IIntercomOpenApiHttpClient _httpclient;
 
-    public IntercomOpenApiHttpClientTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public IntercomOpenApiHttpClientTests(Host host) : base(host)
     {
         _httpclient = Resolve<IIntercomOpenApiHttpClient>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
