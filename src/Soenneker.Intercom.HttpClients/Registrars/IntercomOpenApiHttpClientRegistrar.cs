@@ -6,7 +6,7 @@ using Soenneker.Utils.HttpClientCache.Registrar;
 namespace Soenneker.Intercom.HttpClients.Registrars;
 
 /// <summary>
-/// Registers the OpenAPI HttpClient wrapper for dependency injection.
+/// Registers the cached Intercom HTTP client provider.
 /// </summary>
 public static class IntercomOpenApiHttpClientRegistrar
 {
