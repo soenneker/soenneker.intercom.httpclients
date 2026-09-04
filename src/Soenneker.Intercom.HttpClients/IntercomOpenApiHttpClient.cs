@@ -11,6 +11,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Intercom.HttpClients;
 
+/// <inheritdoc cref="IIntercomOpenApiHttpClient" />
 public sealed class IntercomOpenApiHttpClient : IIntercomOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
