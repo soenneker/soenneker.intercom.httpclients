@@ -30,7 +30,7 @@ public sealed class IntercomOpenApiHttpClient : IIntercomOpenApiHttpClient
     {
         return _httpClientCache.Get(_clientId, (config: _config, baseUrl: _config["Intercom:ClientBaseUrl"] ?? _prodBaseUrl), static state =>
         {
-            var apiKey = state.config.GetValueStrict<string>("Intercom:ApiKey");
+            var apiKey = state.config.GetStringStrict("Intercom:ApiKey");
             string authHeaderName = state.config["Intercom:AuthHeaderName"] ?? "Authorization";
             string authHeaderValueTemplate = state.config["Intercom:AuthHeaderValueTemplate"] ?? "Bearer {token}";
             string authHeaderValue = authHeaderValueTemplate.Replace("{token}", apiKey, StringComparison.Ordinal);
